@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+{% block content %}
+    <div class="d-flex align-items-center" style="height: 100vh">
+        <div class="container">
+{#            <div><img src={% static 'logo.png' %} alt="Logo"> </div>#}
+            <form action="" method="post" class="border-primary rounded d-flex flex">
+                    <input type="text" name="search-query" id="searchbar">
+               <div class="form-check form-switch">
+                   <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+               </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
