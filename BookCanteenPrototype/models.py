@@ -21,6 +21,7 @@ class Book(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='images/')
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    new = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title + " by: " + self.author

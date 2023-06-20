@@ -1,11 +1,163 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     {% load static %}
     <meta charset="UTF-8">
     <title>BookCanteen</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <!-- bootstrap 5.0.2 cdns -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+     <!-- icons -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+     <!-- bootstrap 5.0.2 scripts -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
+     <!-- fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <style> 
+        *{
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }   
+
+        /* toggle stuff */
+
+        .btn-container {
+            width: 140px;
+            height: 30px;
+        }
+
+        .btn-color-mode-switch {
+            width: 100%;
+            height: 100%;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #E0E1DD;
+        }
+
+        .btn-color-mode-switch{
+            display: inline-block;
+            margin: 0px;
+            position: relative;
+        }
+
+        .btn-color-mode-switch > label.btn-color-mode-switch-inner{
+            margin: 0px;
+            width: 100%;
+            height: calc(100% - 2px);
+            /* padding: 2px; */
+            border: #0D1B2A 1px solid;
+            border-radius: 26px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+            /*box-shadow: 0px 0px 8px 0px rgba(17, 17, 17, 0.34) inset;*/
+            display: block;
+        }
+
+        .btn-color-mode-switch > label.btn-color-mode-switch-inner:before{
+            content: attr(data-on);
+            position: absolute;
+            font-size: 12px;
+            font-weight: 700;
+            color: #0D1B2A;
+            top: 5px;
+            right: 20px;
+
+        }
+
+        .btn-color-mode-switch > label.btn-color-mode-switch-inner:after{
+            content: attr(data-off);
+            width: 70px;
+            height: 14px;
+            background: #415A77;
+            border-radius: 26px;
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0px 0px 6px -2px #111;
+            padding: 2px 0px 8px 0;
+        }
+
+        .btn-color-mode-switch > .alert{
+            display: none;
+            background: #FF9800;
+            border: none;
+            color: #fff;
+        }
+
+        .btn-color-mode-switch input[type="checkbox"]{
+            cursor: pointer;
+            width: 50px;
+            height: 25px;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            margin: 0px;
+        }
+
+        /* .btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner{
+            background: #151515;
+            color: #fff;
+        } */
+
+        .btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:after{
+            content: attr(data-on);
+            left: 68px;
+            /* background: #3c3c3c; */
+        }
+
+        .btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:before{
+            content: attr(data-off);
+            right: auto;
+            left: 20px;
+        }
+
+
+
+        .btn-color-mode-switch input[type="checkbox"]:checked ~ .alert{
+            display: block;
+        }
+
+        .btn-container *, .btn-container *:before, .btn-container *:after {
+            box-sizing: content-box;
+        }
+
+        input[type="text"] {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #415A77;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        input[type="text"]:focus {
+            border-bottom: 1px solid #415A77;
+
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 10%;
+            right: 10%;
+            height: 10%;
+            background-color: #E0E1DD;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+
+    </style>
 </head>
 <body>
     {% block content %}
