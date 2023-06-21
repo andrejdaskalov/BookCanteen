@@ -9,6 +9,8 @@ class BookUser(models.Model):
     phone = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    rating = models.FloatField(default=0)
+
 
     def __str__(self):
         return self.name + " " + self.lastname
@@ -22,6 +24,10 @@ class Book(models.Model):
     image = models.ImageField(upload_to='images/')
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     new = models.BooleanField(default=True)
+    
+    subject = models.CharField(max_length=100, default="")
+    location = models.CharField(max_length=100, default="")
+    condition = models.CharField(max_length=255, default="")
 
     def __str__(self):
         return self.title + " by: " + self.author

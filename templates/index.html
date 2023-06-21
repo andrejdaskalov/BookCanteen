@@ -4,7 +4,7 @@
 <div class="container d-flex flex-column align-items-center" style="margin-top: 10%;">
     <img src="{% static 'images/logo.png' %}" alt="logo" style="width: 300px;" class="mb-1">
     <div class="flex-fill">
-        <form action="/results" method="get" >
+        <form action="{% url 'results' %}" method="get" >
             <div class="d-flex align-items-center border border-2 rounded-pill main-search-bar" style="border: 3px solid #415A77 !important; width: 50vw;">
                 <!-- <i class="bi bi-search mx-3 search-collapsed" style="color: #415A77;"></i> -->
                 <!-- <p class="search-collapsed m-0">Search by author, book or subject</p> -->

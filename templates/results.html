@@ -2,9 +2,25 @@
 {% load static %}
 {% block content %}
 
+<nav class="d-flex flex-row justify-content-between align-items-center px-5 my-2">
+    <a href="/" ><img src="{% static 'images/logo.png' %}" alt="logo" style="width: 100px;"></a>
+    <form action="{% url 'results' %}" method="get" >
+        <div class="d-flex align-items-center border border-2 rounded-pill main-search-bar" style="border: 3px solid #415A77 !important; width: 35vw; height: 2.5rem;">
+            <!-- <i class="bi bi-search mx-3 search-collapsed" style="color: #415A77;"></i> -->
+            <!-- <p class="search-collapsed m-0">Search by author, book or subject</p> -->
+            <input type="text" name="query" id="query" placeholder="search by author, book or subject" class="flex-grow-1 border-0 border-bottom my-2 mx-3 fs-6" >
+            <button type="submit" class="btn">
+                <i class="bi bi-search" style="color: #415A77;"></i>
+            </button>
+        </div>
+    </form>
+    <p class="m-0"><i class="bi bi-person"></i> <small class="">Hello, {{ bookuser }}</small></p>
+
+</nav>
+
 <div class="mx-4 px-5 rounded " style="background-color: #E0E1DD;">
-    <div class="border-bottom border-dark d-flex flex-row justify-content-between align-items-center">
-        <h2 class="h2">Results for: {{ query }}</h2>
+    <div class="border-bottom border-dark d-flex flex-row justify-content-between align-items-center pt-2">
+        <h2 class="h2 fw-bold">Results for: {{ query }}</h2>
         <div class="btn-container">
             <label class="btn-color-mode-switch">
                 <input type="checkbox" name="new" id="new_toggle" value="1" {% if new %} checked {% endif %}>
@@ -31,7 +47,7 @@
                                 <p class="card-text">{{ book.description }}</p>
                             </div>
                             <div class="d-flex flex-row justify-content-between">
-                                <p class="card-text me-2">Subject: {{ book.subject }}</p>
+                                <p class="card-text me-2">Subject: <!--{{ book.subject }} --></p>
                                 <p class="card-text">Sold by: {{ book.user.username }}</p> 
 
                             </div>
@@ -54,7 +70,7 @@
 <script>
     const toggle = document.getElementById('new_toggle');
     toggle.addEventListener('change', function () {
-        window.location.href = '/results?query={{ query }}&new=' + (this.checked ? 1 : 0);
+        window.location.href = '/results/?query={{ query }}&new=' + (this.checked ? 1 : 0);
     });
 </script>
 {% endblock %}

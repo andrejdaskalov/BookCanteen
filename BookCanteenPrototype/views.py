@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from BookCanteenPrototype.models import Book
+from BookCanteenPrototype.models import Book, BookUser
 
 from django.db.models import Q
 
@@ -18,8 +18,11 @@ def results(request):
     is_new = True if new == '1' else False
 
     if query and query != '':
-        results = Book.objects.filter(Q(title__icontains=query) | Q(author__icontains=query) | Q(subject__icontains=query),  new=is_new)
+        results = Book.objects.filter(Q(title__icontains=query) | Q(author__icontains=query), new=is_new) #also subject once i add it
     else:
         results = Book.objects.filter(new=is_new)
-    return render(request, 'results.html', {'results': results, 'query': query, 'new': is_new})
+
+    user = request.user
+    bookkuser = BookUser.objects.get(user=user)
+    return render(request, 'results.html', {'results': results, 'query': query, 'new': is_new, 'bookuser': bookkuser})
   
