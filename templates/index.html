@@ -5,13 +5,13 @@
     <img src="{% static 'images/logo.png' %}" alt="logo" style="width: 300px;" class="mb-1">
     <div class="flex-fill">
         <form action="/results" method="get" >
-            <div class="d-flex align-items-center border border-2 rounded-pill main-search-bar" style="border: 3px solid #415A77 !important;">
+            <div class="d-flex align-items-center border border-2 rounded-pill main-search-bar" style="border: 3px solid #415A77 !important; width: 50vw;">
                 <!-- <i class="bi bi-search mx-3 search-collapsed" style="color: #415A77;"></i> -->
                 <!-- <p class="search-collapsed m-0">Search by author, book or subject</p> -->
                 <input type="text" name="query" id="query" placeholder="search by author, book or subject" class="flex-grow-1 border-0 border-bottom my-2 mx-3">
                 <div class="btn-container">
                     <label class="btn-color-mode-switch">
-                        <input type="checkbox" name="new" id="new_toggle" value="1">
+                        <input type="checkbox" name="new" id="new_toggle" value="1" >
                         <label for="new_toggle" data-on="New" data-off="Used" class="btn-color-mode-switch-inner"></label>
                     </label>
                 </div>
