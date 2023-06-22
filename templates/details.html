@@ -22,7 +22,7 @@
     <!-- <a href="{% url 'results' %}?query={{query}}&new={{new}}" class="btn mb-3 fw-bold"><i class="bi bi-arrow-left"></i> back</a> -->
     <div class="card my-3 border-0"
             style="max-width: 100%; background-color: #ecede900;">
-            <div class="row g-3">
+            <div class="row g-3 py-5">
                 <div class="col-md-3">
                     <img src="{{ book.image.url }}"
                         class="img-fluid mx-3 my-3" alt="{{book.title}} cover">
@@ -42,9 +42,9 @@
                     </div>
                 </div>
                 <div class="col-md-1"></div>
-                <div class="col-md-3 d-flex flex-column align-items-end justify-content-between p-5">
+                <div class="col-md-3 d-flex flex-column align-items-end justify-content-between p-5 pt-3">
                     <p class="fw-bold fs-4" style="color:#044B32">${{ book.price }}</p>
-                    <a href="#" class="btn btn-info mb-2 px-3 py-2 fw-bold fs-6" style="background-color: #044B32; color: #D5EDE7; width: 180px;"><i class="bi bi-cart-check-fill"></i> BUY</a>
+                    <a href="{% url 'buy' book_id=book.id %}" class="btn btn-info mb-2 px-3 py-2 fw-bold fs-6" style="background-color: #044B32; color: #D5EDE7; width: 180px;"><i class="bi bi-cart-check-fill"></i> BUY</a>
                     <a href="#" class="btn btn-info px-3 py-2 fw-bold fs-6" style="background-color: #0D1B2A; color: #D5EDE7; width: 180px;">CONTACT SELLER</a>
                 </div>
             </div>

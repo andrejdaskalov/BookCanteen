@@ -34,4 +34,11 @@ def book_details(request, book_id):
     query = request.GET['query'] 
     new = request.GET.get('new', '0')
     return render(request, 'details.html', {'book': book, 'bookuser': bookkuser, "query": query, "new": new})
+
+def buy_book(request, book_id):
+    book = Book.objects.get(id=book_id)
+    user = request.user
+    bookuser = BookUser.objects.get(user=user)
+    # book.delete()
+    return render(request, 'buy_page.html', {'book': book, 'bookuser': bookuser})
   
