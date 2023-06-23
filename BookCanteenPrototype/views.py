@@ -41,4 +41,11 @@ def buy_book(request, book_id):
     bookuser = BookUser.objects.get(user=user)
     # book.delete()
     return render(request, 'buy_page.html', {'book': book, 'bookuser': bookuser})
+
+def thank_you(request):
+    return render(request, 'thankyou.html', {'title': 'Thank you! <br> The seller will contact you shortly.', 'message': 'In the meantime, you can check out other books!'})
+
+def thank_you_seller(request):
+    return render(request, 'thankyou.html', {'title': 'Thank you!', 'message': 'We are reviewing your submission and we will get back to you once it’s live.'})
+
   

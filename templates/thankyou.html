@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+{% load static %}
+{% block content %}
+
+<nav class="d-flex flex-row justify-content-between align-items-center px-5 my-2">
+    <a href="/"><img src="{% static 'images/logo.png' %}" alt="logo" style="width: 100px;"></a>
+    <form action="{% url 'results' %}" method="get">
+        <div class="d-flex align-items-center border border-2 rounded-pill main-search-bar"
+            style="border: 3px solid #415A77 !important; width: 35vw; height: 2.5rem;">
+            <!-- <i class="bi bi-search mx-3 search-collapsed" style="color: #415A77;"></i> -->
+            <!-- <p class="search-collapsed m-0">Search by author, book or subject</p> -->
+            <input type="text" name="query" id="query" placeholder="search by author, book or subject"
+                class="flex-grow-1 border-0 border-bottom my-2 mx-3 fs-6">
+            <button type="submit" class="btn">
+                <i class="bi bi-search" style="color: #415A77;"></i>
+            </button>
+        </div>
+    </form>
+    <p class="m-0"><i class="bi bi-person"></i> <small class="">Hello, {{ bookuser }}</small></p>
+
+</nav>
+
+<div class="mx-4 px-5 pb-5 pt-5 rounded " style="background-color: #E0E1DD; box-shadow: 8px 10px 14px rgba(0, 0, 0, 0.25);">
+    <h1 class="h1 fs-3" style="color: #415A77;">{{title}}</h1>
+    <p class="fs-2" >{{message}}</p>
+
+    <a href="{% url 'index' %}" class="btn btn-success py-3 px-5" style="background-color: #044B32; color: #D5EDE7;">Back to Home</a>
+</div>
+
+{% endblock %}
