@@ -25,7 +25,22 @@ class Book(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     new = models.BooleanField(default=True)
     
-    subject = models.CharField(max_length=100, default="")
+    subjects = [
+        ('Math', 'Math'),
+        ('Science', 'Science'),
+        ('English', 'English'),
+        ('History', 'History'),
+        ('Art', 'Art'),
+        ('Probability and Statistics', 'Probability and Statistics'),
+        ('Computer Science', 'Computer Science'),
+        ('Economics', 'Economics'),
+        ('Business', 'Business'),
+        ('Philosophy', 'Philosophy'),
+        ('Data Science', 'Data Science'),
+        ('Algorithms and Data Structures', 'Algorithms and Data Structures')
+    ]
+
+    subject = models.CharField(max_length=100, default="",choices=subjects)
     location = models.CharField(max_length=100, default="")
     condition = models.CharField(max_length=255, default="")
 

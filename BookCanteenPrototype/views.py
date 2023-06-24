@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from BookCanteenPrototype.forms import BookForm
 
 from BookCanteenPrototype.models import Book, BookUser
 
@@ -47,5 +48,16 @@ def thank_you(request):
 
 def thank_you_seller(request):
     return render(request, 'thankyou.html', {'title': 'Thank you!', 'message': 'We are reviewing your submission and we will get back to you once it’s live.'})
+
+def sell(request):
+    form = BookForm()
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('thank_you_seller')
+        else:
+            print(form.errors)
+    return render(request, 'sell.html' , {'form': form})
 
   

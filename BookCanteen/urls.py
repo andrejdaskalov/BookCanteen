@@ -28,4 +28,5 @@ urlpatterns = [
     path('buy/<int:book_id>/', views.buy_book, name='buy'),
     path('thankyou/', views.thank_you, name='thank_you'),
     path('thankyou_seller/', views.thank_you_seller, name='thank_you_seller'),
+    path('sell/', views.sell, name='sell'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
