@@ -10,7 +10,7 @@ class BookForm(forms.ModelForm):
         super(BookForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class': 'form-control mb-3 d-block'})
-        self.fields['new'].widget.attrs.update({'class': 'form-check-input'})
+        self.fields['new'].widget.attrs.update({'class': 'form-check-input d-block'})
 
 class LoginForm(AuthenticationForm):
     # override contructor
@@ -19,5 +19,6 @@ class LoginForm(AuthenticationForm):
         # add class to fields
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class': 'form-control mb-3 d-block'})
+        
     
     

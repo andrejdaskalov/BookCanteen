@@ -63,7 +63,9 @@ def sell(request):
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            book = form.save(commit=False)
+            book.user = request.user
+            book.save()
             return redirect('thank_you_seller')
         else:
             print(form.errors)
