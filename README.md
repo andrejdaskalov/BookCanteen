@@ -7,16 +7,19 @@ This web app will allow students to create accounts and post listings for course
 ## Link to hosted app
 [http://adaskalov.pythonanywhere.com/](http://adaskalov.pythonanywhere.com/)
 
+## Source code available here on GitHub
+[https://github.com/andrejdaskalov/BookCanteen](https://github.com/andrejdaskalov/BookCanteen)
+
 ## How to run the project
 1. Clone the repository
 2. Install the neccessary requirements:
-```python
+```bash
 pip install django Pillow
 ```
 > You need Python 3.10 or higher to run this project.
 This installs Django, a web framework and Pillow, a Python Imaging Library.
 3. Run the server:
-```python
+```bash
 python manage.py runserver
 ```
 4. Open the link provided in the terminal
