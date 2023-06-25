@@ -32,11 +32,11 @@
     <div class="d-flex flex-column align-items-center">
         {% for book in results %}
         <div class="card my-3"
-            style="max-width: 100%; background-color: #ECEDE9; box-shadow: 8px 10px 14px rgba(0, 0, 0, 0.25);">
+            style="width: 100%; background-color: #ECEDE9; box-shadow: 8px 10px 14px rgba(0, 0, 0, 0.25);">
             <div class="row g-3">
                 <div class="col-md-3">
                     <img src="{{ book.image.url }}"
-                        class="img-fluid mx-3 my-3" alt="{{book.title}} cover">
+                        class="img-fluid mx-3 my-3" style="max-height: 250px;" alt="{{book.title}} cover">
                 </div>
                 <div class="col-md-5">
                     <div class="card-body">

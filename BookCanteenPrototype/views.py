@@ -51,7 +51,7 @@ def buy_book(request, book_id):
 
 @login_required
 def thank_you(request):
-    return render(request, 'thankyou.html', {'title': 'Thank you! <br> The seller will contact you shortly.', 'message': 'In the meantime, you can check out other books!'})
+    return render(request, 'thankyou.html', {'title': 'Thank you! The seller will contact you shortly.', 'message': 'In the meantime, you can check out other books!'})
 
 @login_required
 def thank_you_seller(request):

@@ -110,6 +110,18 @@
     const paymentForm = document.getElementById('payment-form');
     toggle.addEventListener('change', function () {
         paymentForm.style.visibility = this.checked ? 'visible' : 'hidden';
+        // remove required attribute from inputs if unchecked
+        if (!this.checked) {
+            const inputs = paymentForm.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.removeAttribute('required');
+            });
+        } else {
+            const inputs = paymentForm.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.setAttribute('required', true);
+            });
+        }
     });
 </script>
 {% endblock %}
