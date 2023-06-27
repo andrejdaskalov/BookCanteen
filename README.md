@@ -24,3 +24,4 @@ python manage.py runserver
 ```
 4. Open the link provided in the terminal
 > The default is http://localhost:8000/
+> The admin user credentials are admin,admin
